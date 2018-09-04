@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hongri.model.MainActivity">
+
+    <Button
+        android:id="@+id/btnMVC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MVC框架模式"
+        />
+
+    <Button
+        android:id="@+id/btnMVP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MVP框架模式"
+        app:layout_constraintTop_toBottomOf="@id/btnMVC"/>
+
+    <Button
+        android:id="@+id/btnMVVM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MVVM框架模式"
+        app:layout_constraintTop_toBottomOf="@id/btnMVP"/>
+
+</android.support.constraint.ConstraintLayout>
