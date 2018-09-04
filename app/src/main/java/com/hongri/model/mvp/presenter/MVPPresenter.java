@@ -47,16 +47,16 @@ public class MVPPresenter implements MVPLoadDataCallback {
     }
 
     @Override
-    public void onSuccess() {
+    public void onSuccess(Object successData) {
         if (isViewAttached()) {
-            mView.showData(model.name);
+            mView.showData(successData.toString());
         }
     }
 
     @Override
-    public void onFailure() {
+    public void onFailure(Object errorData) {
         if (isViewAttached()) {
-            mView.showData("name加载失败...");
+            mView.showData(errorData.toString());
         }
     }
 }

@@ -18,6 +18,6 @@ public class MVPUserModel {
 
     public void loadUserDataFromNet(MVPLoadDataCallback callback) {
         this.name = "红日";
-        callback.onSuccess();
+        callback.onSuccess(name);
     }
 }
