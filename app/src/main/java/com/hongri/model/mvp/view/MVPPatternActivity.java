@@ -12,9 +12,9 @@ import com.hongri.model.mvp.presenter.MVPPresenter;
 /**
  * @author hongri
  *
- * View
+ *         View
  */
-public class MVPPatternActivity extends AppCompatActivity implements MVPBaseInterface, OnClickListener {
+public class MVPPatternActivity extends AppCompatActivity implements MVPViewInterface, OnClickListener {
 
     private Button btnName;
     private TextView tvName;
@@ -25,7 +25,9 @@ public class MVPPatternActivity extends AppCompatActivity implements MVPBaseInte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mvppattern);
 
-        mvpPresenter = new MVPPresenter(this);
+        mvpPresenter = new MVPPresenter();
+        mvpPresenter.attachView(this);
+
         btnName = findViewById(R.id.btnName);
         tvName = findViewById(R.id.tvName);
 
@@ -33,7 +35,7 @@ public class MVPPatternActivity extends AppCompatActivity implements MVPBaseInte
     }
 
     @Override
-    public void updateName(String name) {
+    public void showData(String name) {
         tvName.setText(name);
     }
 
@@ -45,6 +47,14 @@ public class MVPPatternActivity extends AppCompatActivity implements MVPBaseInte
                 break;
             default:
                 break;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mvpPresenter != null){
+            mvpPresenter.detachView();
         }
     }
 }
