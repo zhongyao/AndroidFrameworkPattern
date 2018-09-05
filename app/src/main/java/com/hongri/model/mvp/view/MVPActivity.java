@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.hongri.model.R;
 import com.hongri.model.mvp.bean.MVPDataInfo;
 import com.hongri.model.mvp.presenter.MVPDataPresenter;
-import com.hongri.model.mvp.presenter.MVPFilePresenter;
 import com.hongri.model.mvp.util.ParseJsonUtil;
 import com.hongri.model.mvp.view.base.MVPBaseActivity;
 
@@ -27,8 +26,7 @@ public class MVPActivity extends MVPBaseActivity implements MVPViewInterface, On
     private TextView tvData;
     private ImageView iv;
     private MVPDataPresenter mvpDataPresenter;
-    private MVPFilePresenter mvpFilePresenter;
-    private String URL = "";
+    private String requestUrl = "";
     private String imageUrl
         = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536172342134&di"
         + "=a60a404882ac53f1425f9e4b2ef87c2c&imgtype=0&src=http%3A%2F%2Fyouimg1.c-ctrip"
@@ -41,9 +39,6 @@ public class MVPActivity extends MVPBaseActivity implements MVPViewInterface, On
 
         mvpDataPresenter = new MVPDataPresenter();
         mvpDataPresenter.attachView(this);
-
-        mvpFilePresenter = new MVPFilePresenter();
-        mvpFilePresenter.attachView(this);
 
         btnName = findViewById(R.id.btnName);
         tvData = findViewById(R.id.tvData);
@@ -59,10 +54,10 @@ public class MVPActivity extends MVPBaseActivity implements MVPViewInterface, On
         switch (v.getId()) {
             case R.id.btnName:
                 tvData.setText("初始数据");
-                mvpDataPresenter.requestData(URL);
+                mvpDataPresenter.requestData(requestUrl);
                 break;
             case R.id.iv:
-                mvpFilePresenter.requestFile(imageUrl);
+                mvpDataPresenter.requestFile(imageUrl);
                 break;
             default:
                 break;
@@ -78,25 +73,25 @@ public class MVPActivity extends MVPBaseActivity implements MVPViewInterface, On
     }
 
     @Override
-    public void showSuccessData(Object data) {
-        MVPDataInfo dataInfo = ParseJsonUtil.parseJSONData(data.toString());
+    public void showSuccessData(String data) {
+        MVPDataInfo dataInfo = ParseJsonUtil.parseJSONData(data);
         tvData.setText(
             "姓名：" + dataInfo.getmName() + "\n" + "性别：" + dataInfo.getmGender() + "\n" + "年龄：" + dataInfo.getmAge());
 
     }
 
     @Override
-    public void showFailureData(Object data) {
+    public void showFailureData(String data) {
         tvData.setText("获取数据失败");
     }
 
     @Override
-    public void showSuccessBitmap(Object bitmap) {
-        iv.setImageBitmap((Bitmap)bitmap);
+    public void showSuccessBitmap(Bitmap bitmap) {
+        iv.setImageBitmap(bitmap);
     }
 
     @Override
-    public void showFailureBitmap(Object bitmap) {
+    public void showFailureBitmap(Bitmap bitmap) {
         iv.setImageBitmap(null);
     }
 }
