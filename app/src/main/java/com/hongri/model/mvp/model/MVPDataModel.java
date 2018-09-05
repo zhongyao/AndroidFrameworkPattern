@@ -12,18 +12,24 @@ import com.hongri.model.mvp.presenter.MVPLoadDataCallback;
  * Model层
  */
 
-public class MVPDataModel extends MVPBaseModel {
-    public String data;
+public class MVPDataModel extends MVPBaseModel<String> {
+    public String data = "";
 
     @Override
-    public void executeGetRequest(String url, final MVPLoadDataCallback callback) {
+    public void executeGetRequest(String url, final MVPLoadDataCallback<String> callback) {
         /**
          * 模拟网络请求耗时操作
          */
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                data = "请求服务端数据成功";
+
+                data = "{\n"
+                    + "  \"name\":\"红日\",\n"
+                    + "  \"gender\":\"男\",\n"
+                    + "  \"age\": \"18\"\n"
+                    + "}";
+
                 if (!TextUtils.isEmpty(data)) {
                     callback.onSuccess(data);
                 } else {
