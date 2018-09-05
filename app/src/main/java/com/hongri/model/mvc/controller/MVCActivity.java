@@ -9,12 +9,15 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import com.hongri.model.R;
 import com.hongri.model.mvc.model.MVCHttpRequestModel;
-import com.hongri.model.mvc.model.OnRequestBitmapListener;
+import com.hongri.model.mvc.model.MVCRequestCallback;
 
 /**
+ * MVC框架--（Model--View--Controller）
+ * 该Activity属于Controller层
+ *
  * @author hongri
  */
-public class MVCPatternActivity extends AppCompatActivity implements View.OnClickListener {
+public class MVCActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnRequest;
     private ImageView iv;
@@ -27,6 +30,9 @@ public class MVCPatternActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /**
+         * xml文件属于理论上的View层
+         */
         setContentView(R.layout.activity_mvcpattern);
 
         mvcHttpRequestModel = new MVCHttpRequestModel();
@@ -41,18 +47,18 @@ public class MVCPatternActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnRequest:
-                mvcHttpRequestModel.onHttpRequestBitmap(URL, new OnRequestBitmapListener() {
+                mvcHttpRequestModel.onHttpRequest(URL, new MVCRequestCallback() {
 
                     @Override
-                    public void onSuccess(final Bitmap bitmap) {
-                        if (bitmap != null) {
-                            iv.setImageBitmap(bitmap);
+                    public void onSuccess(Object successData) {
+                        if (successData != null) {
+                            iv.setImageBitmap((Bitmap)successData);
                         }
                     }
 
                     @Override
-                    public void onFailure() {
-                        Toast.makeText(MVCPatternActivity.this, "请求失败", Toast.LENGTH_LONG).show();
+                    public void onFailure(Object successData) {
+                        Toast.makeText(MVCActivity.this, successData.toString(), Toast.LENGTH_LONG).show();
                     }
                 });
                 break;

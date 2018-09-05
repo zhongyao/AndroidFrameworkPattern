@@ -12,12 +12,14 @@ import android.os.AsyncTask;
 /**
  * @author zhongyao
  * @date 2018/9/4
+ *
+ * Model层
  */
 
 public class MVCHttpRequestModel implements MVCHttpRequestInterface {
 
     @Override
-    public void onHttpRequestBitmap(final String urlString, final OnRequestBitmapListener listener) {
+    public void onHttpRequest(final String urlString, final MVCRequestCallback listener) {
 
         new RequestTask(listener).execute(urlString);
 
@@ -25,9 +27,9 @@ public class MVCHttpRequestModel implements MVCHttpRequestInterface {
 
     public class RequestTask extends AsyncTask<String, Void, Bitmap> {
 
-        private OnRequestBitmapListener listener;
+        private MVCRequestCallback listener;
 
-        public RequestTask(OnRequestBitmapListener listener) {
+        public RequestTask(MVCRequestCallback listener) {
             this.listener = listener;
         }
 
@@ -60,7 +62,7 @@ public class MVCHttpRequestModel implements MVCHttpRequestInterface {
             if (bitmap != null) {
                 listener.onSuccess(bitmap);
             } else {
-                listener.onFailure();
+                listener.onFailure("获取失败");
             }
         }
     }

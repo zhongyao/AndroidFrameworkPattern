@@ -18,7 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".mvc.controller.MVCPatternActivity">
+        <activity android:name=".mvc.controller.MVCActivity">
         </activity>
         <activity android:name=".mvp.view.MVPActivity">
         </activity>

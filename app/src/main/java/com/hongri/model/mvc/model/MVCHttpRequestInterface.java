@@ -6,5 +6,10 @@ package com.hongri.model.mvc.model;
  */
 
 public interface MVCHttpRequestInterface {
-    void onHttpRequestBitmap(String url, OnRequestBitmapListener listener);
+    /**
+     * 网络请求方法
+     * @param url
+     * @param listener
+     */
+    void onHttpRequest(String url, MVCRequestCallback listener);
 }

@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.hongri.model.mvc.controller.MVCPatternActivity;
+import com.hongri.model.mvc.controller.MVCActivity;
 import com.hongri.model.mvp.view.MVPActivity;
 import com.hongri.model.mvvm.view.MVVMPatternActivity;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnMVC:
-                Intent intentMVC = new Intent(this, MVCPatternActivity.class);
+                Intent intentMVC = new Intent(this, MVCActivity.class);
                 startActivity(intentMVC);
                 break;
             case R.id.btnMVP:
