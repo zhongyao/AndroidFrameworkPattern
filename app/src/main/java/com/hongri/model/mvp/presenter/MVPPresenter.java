@@ -1,7 +1,9 @@
 package com.hongri.model.mvp.presenter;
 
-import com.hongri.model.mvp.model.MVPUserModel;
+import com.hongri.model.mvp.model.MVPDataModel;
+import com.hongri.model.mvp.presenter.base.MVPBasePresenter;
 import com.hongri.model.mvp.view.MVPViewInterface;
+import com.hongri.model.util.Token;
 
 /**
  * @author zhongyao
@@ -10,53 +12,26 @@ import com.hongri.model.mvp.view.MVPViewInterface;
  * Presenter
  */
 
-public class MVPPresenter implements MVPLoadDataCallback {
-    private MVPViewInterface mView;
-    private MVPUserModel model;
+public class MVPPresenter extends MVPBasePresenter<MVPViewInterface> implements MVPLoadDataCallback {
 
-    public MVPPresenter() {
-        model = new MVPUserModel();
-    }
-
-    /**
-     * 绑定mView，一般在初始化中调用该方法
-     */
-    public void attachView(MVPViewInterface view) {
-        mView = view;
-    }
-
-    /**
-     * 销毁mView，一般在onDestroy方法中调用
-     */
-    public void detachView() {
-        if (mView != null) {
-            mView = null;
-        }
-    }
-
-    /**
-     * 是否与mView建立联系
-     * 每次调用业务方请求的时候都要先调用此方法检查是否与mView建立联系
-     */
-    public boolean isViewAttached() {
-        return mView != null;
-    }
-
-    public void loadUserData() {
-        this.model.loadUserDataFromNet(this);
+    public void loadUserData(String url) {
+        getAttachView().showLoading();
+        MVPDataModel.request(Token.API_USER_DATA).params(url).execute(this);
     }
 
     @Override
     public void onSuccess(Object successData) {
         if (isViewAttached()) {
-            mView.showData(successData.toString());
+            getAttachView().dismissLoading();
+            getAttachView().showData(successData.toString());
         }
     }
 
     @Override
     public void onFailure(Object errorData) {
         if (isViewAttached()) {
-            mView.showData(errorData.toString());
+            getAttachView().dismissLoading();
+            getAttachView().showData(errorData.toString());
         }
     }
 }

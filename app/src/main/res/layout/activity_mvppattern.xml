@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hongri.model.mvp.view.MVPPatternActivity">
+    tools:context="com.hongri.model.mvp.view.MVPActivity">
 
     <Button
         android:id="@+id/btnName"
@@ -13,12 +13,19 @@
         android:layout_height="wrap_content"
         android:text="点击加载name"/>
 
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="testBtn"
+        app:layout_constraintTop_toBottomOf="@id/btnName"/>
+
     <TextView
         android:id="@+id/tvName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="name"
-        app:layout_constraintTop_toBottomOf="@id/btnName"/>
+        app:layout_constraintTop_toBottomOf="@id/btnTest"/>
 
 </android.support.constraint.ConstraintLayout>

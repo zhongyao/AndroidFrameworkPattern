@@ -1,24 +1,28 @@
 package com.hongri.model.mvp.view;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import com.hongri.model.R;
 import com.hongri.model.mvp.presenter.MVPPresenter;
+import com.hongri.model.mvp.view.base.MVPBaseActivity;
+import com.hongri.model.util.LoadingDialog;
 
 /**
  * @author hongri
  *
  *         View
  */
-public class MVPPatternActivity extends AppCompatActivity implements MVPViewInterface, OnClickListener {
+public class MVPActivity extends MVPBaseActivity implements MVPViewInterface, OnClickListener {
 
     private Button btnName;
+    private Button btnTest;
     private TextView tvName;
     private MVPPresenter mvpPresenter;
+    private LoadingDialog loadingDialog;
+    private String URL = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,10 +32,15 @@ public class MVPPatternActivity extends AppCompatActivity implements MVPViewInte
         mvpPresenter = new MVPPresenter();
         mvpPresenter.attachView(this);
 
+        loadingDialog = new LoadingDialog(this, R.style.LoadingTheme);
+
         btnName = findViewById(R.id.btnName);
+        btnTest = findViewById(R.id.btnTest);
         tvName = findViewById(R.id.tvName);
 
+
         btnName.setOnClickListener(this);
+        btnTest.setOnClickListener(this);
     }
 
     @Override
@@ -43,7 +52,11 @@ public class MVPPatternActivity extends AppCompatActivity implements MVPViewInte
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnName:
-                mvpPresenter.loadUserData();
+                tvName.setText("name");
+                mvpPresenter.loadUserData(URL);
+                break;
+            case R.id.btnTest:
+                loadingDialog.showLoading();
                 break;
             default:
                 break;
@@ -53,8 +66,22 @@ public class MVPPatternActivity extends AppCompatActivity implements MVPViewInte
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mvpPresenter != null){
+        if (mvpPresenter != null) {
             mvpPresenter.detachView();
+        }
+    }
+
+    @Override
+    public void showLoading() {
+        if (loadingDialog != null) {
+            loadingDialog.showLoading();
+        }
+    }
+
+    @Override
+    public void dismissLoading() {
+        if (loadingDialog != null) {
+            loadingDialog.dismissLoading();
         }
     }
 }
