@@ -11,21 +11,15 @@
         android:id="@+id/btnName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="点击加载name"/>
+        android:text="点击请求数据"/>
 
-    <Button
-        android:id="@+id/btnTest"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="testBtn"
-        app:layout_constraintTop_toBottomOf="@id/btnName"/>
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvData"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
-        android:text="name"
-        app:layout_constraintTop_toBottomOf="@id/btnTest"/>
+        android:text="初始数据"
+        app:layout_constraintTop_toBottomOf="@id/btnName"/>
 
 </android.support.constraint.ConstraintLayout>

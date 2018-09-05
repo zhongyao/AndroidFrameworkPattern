@@ -18,25 +18,17 @@ public abstract class MVPBaseModel {
      *
      * @param args 参数数组
      */
-    public MVPBaseModel params(String... args) {
+    public MVPBaseModel setParams(String... args) {
         mParams = args;
         return this;
     }
-
-    /**
-     * 执行具体非网络请求
-     * @param callback
-     */
-    public abstract void execute(MVPLoadDataCallback callback);
 
     /***
      * 执行Get网络请求
      * @param url
      * @param callback
      */
-    protected void requestGetAPI(String url, MVPLoadDataCallback callback) {
-
-    }
+    public abstract void executeGetRequest(String url, MVPLoadDataCallback callback);
 
     /**
      * 执行Post网络请求
@@ -45,7 +37,7 @@ public abstract class MVPBaseModel {
      * @param params
      * @param callback
      */
-    protected void requestPostAPI(String url, Map params, MVPLoadDataCallback callback) {
+    protected void executePostRequest(String url, Map params, MVPLoadDataCallback callback) {
 
     }
 }

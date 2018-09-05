@@ -7,5 +7,5 @@ package com.hongri.model.util;
 
 public class Token {
     public static String PACKAGE_NAME = "com.hongri.model.mvp.model.";
-    public static String API_USER_DATA = PACKAGE_NAME + "MVPUserModel";
+    public static String API_USER_DATA = PACKAGE_NAME + "MVPDataModel";
 }

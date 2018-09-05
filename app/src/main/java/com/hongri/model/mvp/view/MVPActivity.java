@@ -8,20 +8,19 @@ import android.widget.TextView;
 import com.hongri.model.R;
 import com.hongri.model.mvp.presenter.MVPPresenter;
 import com.hongri.model.mvp.view.base.MVPBaseActivity;
-import com.hongri.model.util.LoadingDialog;
 
 /**
+ * MVP(Model--View--Presenter)框架模式--参考：http://www.jcodecraeer.com/a/anzhuokaifa/2017/1020/8625.html
+ *
  * @author hongri
  *
- *         View
+ * 此Activity属于业务View层
  */
 public class MVPActivity extends MVPBaseActivity implements MVPViewInterface, OnClickListener {
 
     private Button btnName;
-    private Button btnTest;
-    private TextView tvName;
+    private TextView tvData;
     private MVPPresenter mvpPresenter;
-    private LoadingDialog loadingDialog;
     private String URL = "";
 
     @Override
@@ -32,31 +31,18 @@ public class MVPActivity extends MVPBaseActivity implements MVPViewInterface, On
         mvpPresenter = new MVPPresenter();
         mvpPresenter.attachView(this);
 
-        loadingDialog = new LoadingDialog(this, R.style.LoadingTheme);
-
         btnName = findViewById(R.id.btnName);
-        btnTest = findViewById(R.id.btnTest);
-        tvName = findViewById(R.id.tvName);
-
+        tvData = findViewById(R.id.tvData);
 
         btnName.setOnClickListener(this);
-        btnTest.setOnClickListener(this);
-    }
-
-    @Override
-    public void showData(String name) {
-        tvName.setText(name);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnName:
-                tvName.setText("name");
-                mvpPresenter.loadUserData(URL);
-                break;
-            case R.id.btnTest:
-                loadingDialog.showLoading();
+                tvData.setText("初始数据");
+                mvpPresenter.requestData(URL);
                 break;
             default:
                 break;
@@ -64,24 +50,20 @@ public class MVPActivity extends MVPBaseActivity implements MVPViewInterface, On
     }
 
     @Override
+    public void showSuccessData(Object data) {
+        tvData.setText(data.toString());
+    }
+
+    @Override
+    public void showFailureData(Object data) {
+        tvData.setText("获取数据失败");
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         if (mvpPresenter != null) {
             mvpPresenter.detachView();
-        }
-    }
-
-    @Override
-    public void showLoading() {
-        if (loadingDialog != null) {
-            loadingDialog.showLoading();
-        }
-    }
-
-    @Override
-    public void dismissLoading() {
-        if (loadingDialog != null) {
-            loadingDialog.dismissLoading();
         }
     }
 }
