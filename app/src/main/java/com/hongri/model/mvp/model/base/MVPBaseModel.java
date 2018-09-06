@@ -28,7 +28,11 @@ public abstract class MVPBaseModel {
      * @param url
      * @param callback
      */
+<<<<<<< HEAD
     public abstract void executeGetRequest(String url, MVPLoadDataCallback callback);
+=======
+    public void executeGetRequest(String url, MVPLoadDataCallback callback){};
+>>>>>>> develop
 
     /**
      * 执行Post网络请求
@@ -40,4 +44,12 @@ public abstract class MVPBaseModel {
     protected void executePostRequest(String url, Map params, MVPLoadDataCallback callback) {
 
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * 获取文件流
+     */
+    public void executeRequestFile(String url, MVPLoadDataCallback callback){};
+>>>>>>> develop
 }
