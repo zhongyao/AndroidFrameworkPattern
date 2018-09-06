@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import com.hongri.model.mvc.controller.MVCActivity;
 import com.hongri.model.mvp.view.MVPActivity;
-import com.hongri.model.mvvm.view.MVVMActivity;
+import com.hongri.model.mvvm.view.MVVMPatternActivity;
 
 /**
  * @author hongri
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentMVP);
                 break;
             case R.id.btnMVVM:
-                Intent intentMVVM = new Intent(this, MVVMActivity.class);
+                Intent intentMVVM = new Intent(this, MVVMPatternActivity.class);
                 startActivity(intentMVVM);
                 break;
             default:

@@ -5,16 +5,8 @@ package com.hongri.model.mvvm.viewmodel;
  * @date 2018/9/3
  */
 
-public interface MVVMLoadDataCallback<T extends Object> {
-    /**
-     * 请求成功
-     * @param successData
-     */
-    void onSuccess(T successData);
+public interface MVVMLoadDataCallback {
+    void onSuccess();
 
-    /**
-     * 请求失败
-     * @param failureData
-     */
-    void onFailure(T failureData);
+    void onFailure();
 }

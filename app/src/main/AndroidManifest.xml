@@ -22,7 +22,7 @@
         </activity>
         <activity android:name=".mvp.view.MVPActivity">
         </activity>
-        <activity android:name=".mvvm.view.MVVMActivity">
+        <activity android:name=".mvvm.view.MVVMPatternActivity">
         </activity>
         <activity android:name=".mvp.view.base.MVPBaseActivity">
         </activity>

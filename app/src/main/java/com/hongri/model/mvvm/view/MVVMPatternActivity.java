@@ -8,36 +8,33 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.hongri.model.R;
 import com.hongri.model.databinding.ActivityMvvmpatternBinding;
-import com.hongri.model.mvvm.viewmodel.MVVMDataViewModel;
+import com.hongri.model.mvvm.viewmodel.MVVMUserViewModel;
 
 /**
- * 参考：https://www.jianshu.com/p/7ee9bbcb184c
- * MVVM框架模式--（Model--View--ViewModel）
  * @author hongri
- * 该Activity属于View层
  */
-public class MVVMActivity extends AppCompatActivity {
+public class MVVMPatternActivity extends AppCompatActivity {
 
-    private MVVMDataViewModel userViewModel;
-    private TextView tvData;
+    private MVVMUserViewModel userViewModel;
+    private TextView tvName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityMvvmpatternBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_mvvmpattern);
-        userViewModel = new MVVMDataViewModel();
+        userViewModel = new MVVMUserViewModel();
         binding.setUserViewModel(userViewModel);
         binding.setHandlers(this);
 
-        tvData = binding.tvData;
+        tvName = binding.tvName;
 
     }
 
-    public void onClickShowToastData(View view) {
-        Toast.makeText(this, tvData.getText().toString(), Toast.LENGTH_LONG).show();
+    public void onClickShowToastName(View view) {
+        Toast.makeText(this, tvName.getText().toString(), Toast.LENGTH_LONG).show();
     }
 
-    public void onClickRequestData(View view) {
-        userViewModel.requestData();
+    public void onClickLoadData(View view) {
+        userViewModel.loadUserData();
     }
 }

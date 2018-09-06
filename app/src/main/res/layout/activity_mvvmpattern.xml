@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,41 +9,41 @@
 
         <variable
             name="userViewModel"
-            type="com.hongri.model.mvvm.viewmodel.MVVMDataViewModel"/>
+            type="com.hongri.model.mvvm.viewmodel.MVVMUserViewModel"/>
 
         <variable
             name="handlers"
-            type="com.hongri.model.mvvm.view.MVVMActivity"/>
+            type="com.hongri.model.mvvm.view.MVVMPatternActivity"/>
 
         <variable
-            name="data"
+            name="name"
             type="String"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/btnMVVM"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{handlers.onClickRequestData}"
-            android:text="点击请求数据"/>
+            android:onClick="@{handlers.onClickLoadData}"
+            android:text="修改name"/>
 
         <Button
             android:id="@+id/btnToast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{handlers.onClickShowToastData}"
-            android:text="请求数据成功后提示Toast"/>
+            android:onClick="@{handlers.onClickShowToastName}"
+            android:text="点击展示name提示Toast"/>
 
         <TextView
-            android:id="@+id/tvData"
+            android:id="@+id/tvName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@{userViewModel.data}"/>
+            android:text="@{userViewModel.name}"/>
     </LinearLayout>
 </layout>
