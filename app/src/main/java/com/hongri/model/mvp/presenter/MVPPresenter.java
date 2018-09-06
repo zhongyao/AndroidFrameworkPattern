@@ -1,6 +1,6 @@
 package com.hongri.model.mvp.presenter;
 
-import com.hongri.model.mvp.model.MVPModelManager;
+import com.hongri.model.mvp.model.MVPDataModelManager;
 import com.hongri.model.mvp.model.MVPDataModel;
 import com.hongri.model.mvp.presenter.base.MVPBasePresenter;
 import com.hongri.model.mvp.view.MVPViewInterface;
@@ -12,7 +12,7 @@ import com.hongri.model.mvp.view.MVPViewInterface;
  * Presenter层
  */
 
-public class MVPDataPresenter extends MVPBasePresenter<MVPViewInterface<Object>> implements MVPLoadDataCallback<String> {
+public class MVPPresenter extends MVPBasePresenter<MVPViewInterface> implements MVPLoadDataCallback {
 
     /**
      * 请求数据入口
@@ -21,7 +21,7 @@ public class MVPDataPresenter extends MVPBasePresenter<MVPViewInterface<Object>>
      */
     public void requestData(String url) {
         getAttachView().showLoading();
-        MVPModelManager.newInstance(MVPDataModel.class.getName()).setParams("").executeGetRequest(url, this);
+        MVPDataModelManager.newInstance(MVPDataModel.class.getName()).setParams("").executeGetRequest(url, this);
     }
 
     /**
@@ -30,10 +30,10 @@ public class MVPDataPresenter extends MVPBasePresenter<MVPViewInterface<Object>>
      * @param successData
      */
     @Override
-    public void onSuccess(String successData) {
+    public void onSuccess(Object successData) {
         if (isViewAttached()) {
             getAttachView().dismissLoading();
-            getAttachView().showSuccessData(successData);
+            getAttachView().showSuccessData(successData.toString());
         }
     }
 
@@ -43,10 +43,10 @@ public class MVPDataPresenter extends MVPBasePresenter<MVPViewInterface<Object>>
      * @param errorData
      */
     @Override
-    public void onFailure(String errorData) {
+    public void onFailure(Object errorData) {
         if (isViewAttached()) {
             getAttachView().dismissLoading();
-            getAttachView().showFailureData(errorData);
+            getAttachView().showFailureData(errorData.toString());
         }
     }
 }

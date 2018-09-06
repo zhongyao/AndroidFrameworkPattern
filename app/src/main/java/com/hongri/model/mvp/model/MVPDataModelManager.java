@@ -9,7 +9,7 @@ import com.hongri.model.mvp.model.base.MVPBaseModel;
  * 统一Model管理器
  */
 
-public class MVPModelManager {
+public class MVPDataModelManager {
 
     public static MVPBaseModel mvpModel;
 

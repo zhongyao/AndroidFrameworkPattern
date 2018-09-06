@@ -9,7 +9,7 @@ import com.hongri.model.mvp.presenter.MVPLoadDataCallback;
  * @date 2018/9/5
  */
 
-public abstract class MVPBaseModel<T> {
+public abstract class MVPBaseModel {
 
     protected String[] mParams;
 
@@ -28,7 +28,7 @@ public abstract class MVPBaseModel<T> {
      * @param url
      * @param callback
      */
-    public void executeGetRequest(String url, MVPLoadDataCallback<T> callback){};
+    public abstract void executeGetRequest(String url, MVPLoadDataCallback callback);
 
     /**
      * 执行Post网络请求
@@ -37,12 +37,7 @@ public abstract class MVPBaseModel<T> {
      * @param params
      * @param callback
      */
-    protected void executePostRequest(String url, Map params, MVPLoadDataCallback<T> callback) {
+    protected void executePostRequest(String url, Map params, MVPLoadDataCallback callback) {
 
     }
-
-    /**
-     * 获取文件流
-     */
-    public void executeRequestFile(String url, MVPLoadDataCallback<T> callback){};
 }
