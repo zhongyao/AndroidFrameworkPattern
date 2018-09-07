@@ -10,7 +10,7 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/4
  *
  * Model层
@@ -59,6 +59,10 @@ public class MVCHttpRequestModel implements MVCHttpRequestInterface {
         @Override
         protected void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
+
+            /**
+             *Model层请求完数据后回调给Controller层，Controller层更新UI
+             */
             if (bitmap != null) {
                 listener.onSuccess(bitmap);
             } else {

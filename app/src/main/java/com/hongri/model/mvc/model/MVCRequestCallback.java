@@ -1,7 +1,7 @@
 package com.hongri.model.mvc.model;
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/4
  * 请求回调接口
  */

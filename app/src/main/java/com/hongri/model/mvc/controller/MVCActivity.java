@@ -12,20 +12,20 @@ import com.hongri.model.mvc.model.MVCHttpRequestModel;
 import com.hongri.model.mvc.model.MVCRequestCallback;
 
 /**
- * MVC框架--（Model--View--Controller）
- * 该Activity属于Controller层
- *
  * @author hongri
+ * @date 2018/9/4
+ *
+ * Controller层
  */
 public class MVCActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btnRequest;
     private ImageView iv;
     private MVCHttpRequestModel mvcHttpRequestModel;
-    private static final String URL
-        = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536027337403&di"
-        + "=f94b0a842cef7eeb2be2cba6612fe034&imgtype=0&src=http%3A%2F%2Fwww.officedoyen"
-        + ".com%2Fuploads%2Fallimg%2F140929%2F1-140929230255201.jpg";
+    private static final String requestUrl
+        = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536307707406&di"
+        + "=edafdb6ac08325cbabe1bf4fdb930cec&imgtype=0&src=http%3A%2F%2Fpic.qiantucdn"
+        + ".com%2F58pic%2F18%2F23%2F07%2F54F58PIC2yq_1024.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,11 @@ public class MVCActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnRequest:
-                mvcHttpRequestModel.onHttpRequest(URL, new MVCRequestCallback() {
+
+                /**
+                 * Controller层将网络请求业务逻辑交由Model层处理
+                 */
+                mvcHttpRequestModel.onHttpRequest(requestUrl, new MVCRequestCallback() {
 
                     @Override
                     public void onSuccess(Object successData) {
@@ -57,8 +61,8 @@ public class MVCActivity extends AppCompatActivity implements View.OnClickListen
                     }
 
                     @Override
-                    public void onFailure(Object successData) {
-                        Toast.makeText(MVCActivity.this, successData.toString(), Toast.LENGTH_LONG).show();
+                    public void onFailure(Object failureData) {
+                        Toast.makeText(MVCActivity.this, failureData.toString(), Toast.LENGTH_LONG).show();
                     }
                 });
                 break;
