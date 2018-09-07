@@ -17,7 +17,7 @@ public class ParseJsonUtil {
         MVPDataInfo dataInfo = new MVPDataInfo();
         try {
             JSONObject jsonObject = new JSONObject(data);
-            dataInfo.setmName(jsonObject.optString("name"));
+            dataInfo.setmName(jsonObject.optString("mData"));
             dataInfo.setmGender(jsonObject.optString("gender"));
             dataInfo.setmAge(jsonObject.optInt("age"));
         } catch (JSONException e) {

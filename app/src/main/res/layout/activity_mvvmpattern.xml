@@ -9,14 +9,14 @@
 
         <variable
             name="userViewModel"
-            type="com.hongri.model.mvvm.viewmodel.MVVMUserViewModel"/>
+            type="com.hongri.model.mvvm.viewmodel.MVVMDataViewModel"/>
 
         <variable
             name="handlers"
-            type="com.hongri.model.mvvm.view.MVVMPatternActivity"/>
+            type="com.hongri.model.mvvm.view.MVVMActivity"/>
 
         <variable
-            name="name"
+            name="data"
             type="String"/>
     </data>
 
@@ -30,20 +30,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{handlers.onClickLoadData}"
-            android:text="修改name"/>
+            android:text="点击请求数据"/>
 
         <Button
             android:id="@+id/btnToast"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{handlers.onClickShowToastName}"
-            android:text="点击展示name提示Toast"/>
+            android:text="点击请求数据并Toast提示"/>
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/tvData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@{userViewModel.name}"/>
+            android:text="@{userViewModel.data}"/>
     </LinearLayout>
 </layout>

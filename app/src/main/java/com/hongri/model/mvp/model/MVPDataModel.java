@@ -29,7 +29,7 @@ public class MVPDataModel extends MVPBaseModel {
                  * 为了增加通用性，建议以请求回来的原有数据返回给View层，由View层做具体的数据解析、UI展示处理
                  */
                 data = "{\n"
-                    + "  \"name\":\"红日\",\n"
+                    + "  \"mData\":\"红日\",\n"
                     + "  \"gender\": \"男士\",\n"
                     + "  \"age\":18\n"
                     + "}";
