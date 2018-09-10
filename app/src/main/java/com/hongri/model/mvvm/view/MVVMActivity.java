@@ -12,6 +12,7 @@ import com.hongri.model.mvvm.viewmodel.MVVMDataViewModel;
 
 /**
  * @author hongri
+ * View层
  */
 public class MVVMActivity extends AppCompatActivity {
 

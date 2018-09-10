@@ -16,7 +16,7 @@ import com.hongri.model.mvp.view.base.MVPBaseActivity;
  *
  * @author hongri
  *
- *此Activity属于业务View层
+ * View层
  */
 public class MVPActivity extends MVPBaseActivity implements MVPViewInterface, OnClickListener {
 

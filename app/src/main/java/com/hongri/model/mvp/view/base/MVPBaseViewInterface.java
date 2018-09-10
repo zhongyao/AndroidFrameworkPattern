@@ -1,7 +1,7 @@
 package com.hongri.model.mvp.view.base;
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/3
  *
  * 该接口记录所有页面通用的回调方法

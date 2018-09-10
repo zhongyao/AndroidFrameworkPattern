@@ -7,7 +7,7 @@ import com.hongri.model.mvp.view.MVPViewInterface;
 
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/3
  *
  * Presenter层

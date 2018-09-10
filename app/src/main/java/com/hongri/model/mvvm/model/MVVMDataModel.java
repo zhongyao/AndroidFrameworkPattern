@@ -3,8 +3,9 @@ package com.hongri.model.mvvm.model;
 import com.hongri.model.mvvm.viewmodel.MVVMLoadDataCallback;
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/3
+ * Model层
  */
 
 public class MVVMDataModel {

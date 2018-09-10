@@ -1,7 +1,7 @@
 package com.hongri.model.mvp.bean;
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/6
  */
 

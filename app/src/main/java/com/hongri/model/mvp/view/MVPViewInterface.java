@@ -3,7 +3,7 @@ package com.hongri.model.mvp.view;
 import com.hongri.model.mvp.view.base.MVPBaseViewInterface;
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/4
  *
  * 记录某个业务方所需的回调方法

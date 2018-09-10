@@ -3,7 +3,7 @@ package com.hongri.model.mvp.model;
 import com.hongri.model.mvp.model.base.MVPBaseModel;
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/5
  *
  * 统一Model管理器

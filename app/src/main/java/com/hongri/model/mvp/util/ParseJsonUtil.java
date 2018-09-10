@@ -5,7 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/6
  *
  * Json数据解析类

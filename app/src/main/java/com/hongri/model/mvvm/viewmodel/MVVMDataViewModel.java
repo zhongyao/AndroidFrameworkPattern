@@ -8,6 +8,7 @@ import com.hongri.model.mvvm.model.MVVMDataModel;
 /**
  * @author zhongyao
  * @date 2018/9/3
+ * ViewModel层
  */
 
 public class MVVMDataViewModel extends BaseObservable implements MVVMLoadDataCallback {

@@ -3,7 +3,7 @@ package com.hongri.model.mvp.presenter.base;
 import com.hongri.model.mvp.view.base.MVPBaseViewInterface;
 
 /**
- * @author zhongyao
+ * @author hongri
  * @date 2018/9/4
  */
 
