@@ -8,3 +8,5 @@
 /build
 /captures
 .externalNativeBuild
+app/libs/
+app/src/main/java/com/hongri/model/mvc/view/
