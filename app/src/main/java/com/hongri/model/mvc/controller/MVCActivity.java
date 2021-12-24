@@ -22,10 +22,7 @@ public class MVCActivity extends AppCompatActivity implements View.OnClickListen
     private Button btnRequest;
     private ImageView iv;
     private MVCHttpRequestModel mvcHttpRequestModel;
-    private static final String requestUrl
-        = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536307707406&di"
-        + "=edafdb6ac08325cbabe1bf4fdb930cec&imgtype=0&src=http%3A%2F%2Fpic.qiantucdn"
-        + ".com%2F58pic%2F18%2F23%2F07%2F54F58PIC2yq_1024.jpg";
+    private static final String requestUrl = "https://avatar.csdnimg.cn/5/7/C/1_u012440207.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

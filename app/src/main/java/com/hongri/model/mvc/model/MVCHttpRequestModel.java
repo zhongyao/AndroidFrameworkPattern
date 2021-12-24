@@ -25,7 +25,7 @@ public class MVCHttpRequestModel implements MVCHttpRequestInterface {
 
     }
 
-    public class RequestTask extends AsyncTask<String, Void, Bitmap> {
+    public static class RequestTask extends AsyncTask<String, Void, Bitmap> {
 
         private MVCRequestCallback listener;
 
